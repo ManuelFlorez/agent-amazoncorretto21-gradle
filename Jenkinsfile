@@ -47,5 +47,17 @@ agent { dockerfile true }
       }
     }
 
+    stage('Java Version') {
+      steps {
+        sh 'java -version'
+      }
+    }
+
+    stage('Gradle Version') {
+      steps {
+        sh 'gradle -v'
+      }
+    }
+
   }
 }
