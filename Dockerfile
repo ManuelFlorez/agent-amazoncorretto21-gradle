@@ -8,4 +8,6 @@ RUN yum install unzip -y
 
 RUN unzip -d /opt/gradle/ gradle-8.9-all.zip
 
-RUN export PATH="$PATH":/opt/gradle/gradle-8.9/bin
+ENV GRADLE_HOME=/opt/gradle/gradle-8.9
+
+ENV PATH=$PATH:$GRADLE_HOME/bin
