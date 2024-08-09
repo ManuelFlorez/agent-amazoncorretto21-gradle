@@ -53,15 +53,6 @@ agent { dockerfile true }
       }
     }
 
-    stage('Gradle install') {
-      steps {
-        sh 'curl --location --show-error -o gradle-8.9-all.zip "https://services.gradle.org/distributions/gradle-8.9-all.zip" && \
-            yum install -y unzip && \
-            unzip -d /opt/gradle/ gradle-8.9-all.zip && \
-            rm gradle-8.9-all.zip'
-      }
-    }
-
     stage('Gradle Version') {
       steps {
         sh 'gradle --version'
