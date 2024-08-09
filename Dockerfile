@@ -2,13 +2,12 @@ FROM amazoncorretto:21
 
 RUN mkdir /opt/gradle
 
-#RUN curl --location --show-error -o gradle-8.9-all.zip "https://services.gradle.org/distributions/gradle-8.9-all.zip" && \
-#    yum install -y unzip && \
-#    unzip -d /opt/gradle/ gradle-8.9-all.zip && \
-#    rm gradle-8.9-all.zip
+ENV GRADLE_VERSION=8.9
+RUN wget https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip -O /tmp/gradle.zip && \
+    unzip /tmp/gradle.zip -d /opt && \
+    rm /tmp/gradle.zip
 
-ENV GRADLE_HOME=/opt/gradle/gradle-8.9
 
-ENV PATH=$PATH:$GRADLE_HOME/bin
+ENV GRADLE_HOME=/opt/gradle-${GRADLE_VERSION}
+ENV PATH="${PATH}:${GRADLE_HOME}/bin"
 
-#RUN chmod -R 777 /opt/gradle/gradle-8.9/
