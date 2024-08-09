@@ -1,6 +1,6 @@
 FROM amazoncorretto:21
 
-RUN mkdir /opt/gradle
+RUN yum install -y wget unzip
 
 ENV GRADLE_VERSION=8.9
 RUN wget https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip -O /tmp/gradle.zip && \
